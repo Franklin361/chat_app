@@ -1,0 +1,70 @@
+
+.check_label input,
+.content-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.check_label input {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+}
+.check_label {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 0px 0 5px 60px; /* Damos un padding de 60px para posicionar 
+        el elemento <i> en este espacio*/
+  display: block;
+}
+
+/* Estas reglas se aplicarán a todos las elementos i 
+después de cualquier input*/
+.check_label input + i {
+  background: #f0f0f0;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Estas reglas se aplicarán a todos los i despues 
+de un input de tipo checkbox*/
+.check_label input[type="checkbox"] + i {
+  width: 45px;
+  height: 25px;
+  border-radius: 15px;
+  transition: all 0.3s ease-out;
+}
+
+.check_label input[type="checkbox"] + i:before {
+  content: ""; /* No hay contenido */
+  width: 20px;
+  transition: all 0.3s ease-out;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  left: 0px;
+  top: 0px;
+  -webkit-box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+.check_label input[type="checkbox"]:checked + i:before {
+  left: 22px;
+  -webkit-box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.check_label input[type="checkbox"]:checked + i {
+  background: slateblue;
+}
+
+@media screen and (max-width: 500px) {
+  .check_label{
+    padding: 4px 0 0px 60px;
+  }
+
+}

@@ -1,0 +1,114 @@
+.container_messages_chat {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+.mensaje_user,
+.mensaje_me {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+  position: relative;
+  margin-bottom: 3em;
+}
+.mensaje_me {
+  flex-direction: row-reverse;
+}
+
+.mensaje_user .img_avatar_msg,
+.mensaje_me .img_avatar_msg {
+  width: 45px;
+  height: 45px;
+}
+.mensaje_user .img_avatar_msg img,
+.mensaje_me .img_avatar_msg img {
+  width: 100%;
+  object-fit: cover;
+}
+.mensaje_user .msg_container,
+.mensaje_me .msg_container {
+  display: block;
+  border-radius: 5px;
+  background-color: rgb(218, 218, 218);
+  padding: 0.5em 1em;
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+.mensaje_me .msg_container {
+  background-color: rgb(177, 168, 236);
+}
+
+.mensaje_user .msg_container::before {
+  content: "";
+  background-color: rgb(218, 218, 218);
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%) rotate(45deg);
+}
+.mensaje_me .msg_container::before {
+  content: "";
+  background-color: rgb(177, 168, 236);
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%) rotate(45deg);
+}
+.msg {
+  font-weight: 500;
+}
+.hora,
+.hora_me {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  position: absolute;
+  bottom: -2em;
+  color: rgb(238, 237, 237);
+  font-size: 0.9em;
+}
+.hora {
+  left: 0;
+}
+.hora_me {
+  right: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .mensaje_user .img_avatar_msg,
+  .mensaje_me .img_avatar_msg {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mensaje_user .msg_container,
+  .mensaje_me .msg_container {
+    max-width: 450px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .mensaje_user .msg_container,
+  .mensaje_me .msg_container {
+    max-width: 150px;
+  }
+  .hora,
+  .hora_me {
+    bottom: -2.7em;
+  }
+  .mensaje_user,
+  .mensaje_me {
+    margin-bottom: 4em;
+  }
+}

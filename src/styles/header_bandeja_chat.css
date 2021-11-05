@@ -1,0 +1,64 @@
+
+.bandeja_chats > header{
+    width: 100%;
+    padding: 1.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.685);
+}
+.bandeja_chats > header > span{
+    font-weight: 500;
+}
+.bandeja_chats > header > button {
+    border-radius: 50px;
+    padding: .5em 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(245, 69, 104);
+    color: white;
+    gap: .5em;
+    outline: 1px solid crimson;
+    transition: all .3s ease-in-out;
+}
+.bandeja_chats > header > button > span {
+    font-weight: 500;
+}
+.bandeja_chats > header > button:hover{
+    background-color: crimson;
+}
+.bandeja_chats > header > button:active{
+    background-color: rgb(245, 69, 104);
+}
+
+.bandeja_chats > header > .menu_btn{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    outline: 1px solid black;
+    display: none;
+}
+.bandeja_chats > header > .menu_btn:hover{
+    background-color: rgb(223, 221, 221);
+    color: black;
+}
+.bandeja_chats > header > .menu_btn:active{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+
+@media screen and (max-width: 800px) {
+    .bandeja_chats > header > button{
+        font-size: 1em;
+    }
+    .bandeja_chats > header > button > span{
+        font-weight: 600;
+    }
+    .bandeja_chats > header > span{
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+}

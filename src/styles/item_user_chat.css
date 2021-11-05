@@ -1,0 +1,38 @@
+
+.container_user{
+    /* background-color: rgba(0, 0, 0, 0.226); */
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .5em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.685);
+}
+
+.container_user:hover{
+    background-color: rgba(0, 0, 0, 0.521);
+}
+
+.container_user .img_avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.container_user .avatar img{
+    width: 100%;
+    object-fit: cover;
+}
+.info_user{ 
+    width: 80%;
+}
+.info_user .online{
+    font-weight: 500;
+    color: rgb(47, 206, 55);
+}
+.info_user .offline{
+    font-weight: 500;
+    color: rgb(201, 84, 84);
+}
+
+

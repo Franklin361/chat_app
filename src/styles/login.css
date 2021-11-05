@@ -1,0 +1,188 @@
+@import url('./checkbox.css');
+
+.title {
+  font-weight: 600;
+  display: inline-block;
+  width: 100%;
+  letter-spacing: 2px;
+  text-align: center;
+  color: white;
+  font-size: 3em;
+}
+.title_margin_lg{
+  margin: .5em 0 .5em 0;
+}
+.title_margin_sm{
+  margin: 0.2em 0 0.2em 0;
+}
+.formulario {
+  width: 40%;
+  border-radius: 6px;
+  margin: 0em auto;
+  padding: 1em 2em;
+  background-color: #ffffff10;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: white;
+  position: relative;
+  
+}
+.fade_inup{
+  animation: fadeInUp .5s;
+}
+.fade_indown{
+  animation: fadeInDown .5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+.container_input {
+  margin: 1em 0;
+}
+.container_input > label {
+  font-weight: 500;
+  font-size: 1.2em;
+  display: inline-block;
+  margin-bottom: 0.4em;
+}
+.check {
+  display: inline-block;
+  margin-top: 1em;
+}
+.check > .check_label {
+  font-size: 1.1em;
+  cursor: pointer;
+  display: inline;
+  margin-bottom: 0;
+}
+input[type="checkbox"] {
+  margin-right: 1em;
+}
+.input_icon {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  overflow: hidden;
+  outline: 1px solid rgba(0, 0, 0, 0.486);
+
+  display: grid;
+  grid-template-columns: 10% 90%;
+
+  align-items: center;
+  justify-items: center;
+}
+.input_icon > .icon {
+  font-size: 1.6em;
+  color: rgba(0, 0, 0, 0.377);
+  width: 100%;
+}
+.input_icon > input {
+  border: none;
+  outline: none;
+  padding: 0.5em;
+  font-size: 1.3em;
+  width: 100%;
+}
+.input_icon > input::placeholder {
+  color: rgba(0, 0, 0, 0.253);
+}
+.btn_login {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  outline: 1px solid rgba(0, 0, 0, 0.308);
+  font-size: 1.3em;
+  background-color: slateblue;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.7em 0;
+  margin: 1.5em 0 0 0;
+
+  position: absolute;
+  bottom: -4.4em;
+  left: 0;
+  transition: all 0.3s ease-out;
+}
+.btn_login > span {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.btn_login > .icon {
+  font-size: 1.5em;
+}
+.btn_login:hover {
+  background-color: rgb(89, 76, 175);
+}
+.btn_login:active {
+  background-color: slateblue;
+}
+.container_label_link{
+    text-align: end;
+    font-size: 1.1em;
+}
+.container_label_link>span{
+    cursor: pointer;
+    transition: all 1s ease-out;
+}
+.container_label_link>span:hover{
+    border-bottom: 1px solid white;
+}
+
+@media screen and (max-width: 800px) {
+  .formulario {
+    margin: 0em auto 7em auto;
+    width: 90%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .formulario{
+    font-size: 15px;
+    padding: 1em;
+  }
+  .input_icon > .icon {
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.377);
+    width: 100%;
+  }
+  .input_icon > input {
+    font-size: 1.1em;
+  }
+  .title{
+    font-size: 1.5em;
+  }
+  .check > .check_label {
+    font-size: .9em;
+  }
+}

@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700;900&display=swap");
+@import url("./login.css");
+@import url("./home.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+*::selection{
+  background-color: transparent;
+}
+body {
+  background-image: url("https://www.xtrafondos.com/wallpapers/vertical/noche-en-las-montanas-con-planetas-de-fondo-7980.jpg");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+body::after {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.527);
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+body::-webkit-scrollbar{
+  width: 0;
+}
+
+
+  
+
+a {
+  text-decoration: none;
+}

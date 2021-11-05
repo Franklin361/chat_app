@@ -1,0 +1,69 @@
+.flex_container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container_messages_chat {
+  height: 85vh;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.452);
+}
+.formulario_chat {
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+}
+.formulario_chat textarea {
+  height: 15vh;
+  resize: none;
+  width: 85%;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  font-size: 1.1em;
+  padding: 0.5em;
+  background-color: transparent;
+  color: white;
+}
+.formulario_chat button {
+  width: 15%;
+  background-color: rgb(128, 114, 219);
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  height: 15vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+.formulario_chat button span {
+  font-weight: 500;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+.formulario_chat button .icon {
+  font-size: 1.5em;
+}
+.formulario_chat button:hover {
+  background-color: rgb(101, 90, 172);
+}
+.formulario_chat button:active {
+  background-color: rgb(128, 114, 219);
+}
+
+@media screen and (max-width: 800px) {
+  .formulario_chat textarea {
+
+    width: 70%;
+    
+  }
+  .formulario_chat button {
+    width: 30%;
+  }
+}
