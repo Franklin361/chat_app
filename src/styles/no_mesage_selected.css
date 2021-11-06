@@ -9,6 +9,8 @@
     z-index: 1;
     background-color: rgb(140, 123, 248);
     color: white;
+    text-align: center;
+    padding: 0 .5em;
 }
 
 .no_mensajes::before{

@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
 }
-.formulario_chat textarea {
+.formulario_chat .input {
   height: 15vh;
   resize: none;
   width: 85%;
@@ -58,7 +58,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  .formulario_chat textarea {
+  .formulario_chat .input {
 
     width: 70%;
     

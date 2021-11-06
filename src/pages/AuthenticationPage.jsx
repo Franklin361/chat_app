@@ -1,20 +1,60 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineLock, AiOutlineUser } from "react-icons/ai";
 import { BiLogIn, BiUserCircle } from "react-icons/bi";
 import { FiAtSign } from "react-icons/fi";
+import { AuthContext } from '../auth/AuthContext';
+import { validForm } from '../helpers/validForm';
 import { useForm } from '../hooks/useForm';
+
+
+const initialState = {
+    nombre: '', password: '', email: '', recordar: false
+}
 
 const AuthenticationPage = () => {
 
+    
     const [isCreateANewAccount, setIsCreateANewAccount] = useState(false);
-    const { onChange, nombre, password, email, recordar } = useForm({
-        nombre: '', password: '', email: '', recordar: false
-    })
+    const [error, setError] = useState(true);
+    const { onChange, nombre, password, email, recordar, setForm, resetForm, form} = useForm( initialState);
+    const { login, register } = useContext(AuthContext)
 
     const handleAuthentication = (e) => {
         e.preventDefault();
-        console.log({nombre, password, email, recordar})
+
+        (recordar)
+            ? localStorage.setItem('email', email)
+            : localStorage.removeItem('email', email);
+
+        (isCreateANewAccount)
+            ? handleCreateAccount()
+            : handleLogin();
     };
+
+    const handleCreateAccount = async () => register(nombre, email, password)
+
+    const handleLogin = async () => login(email, password);
+
+    useEffect(() => {
+        setError(validForm(isCreateANewAccount, form))
+    }, [form]);
+
+    useEffect(() => {
+        resetForm()
+    }, [isCreateANewAccount]);
+
+
+    useEffect(() => {
+        const email = localStorage.getItem('email');
+        if(email){
+            setForm({
+                ...form,
+                recordar:true,
+                email
+            })
+        }
+    }, []);
+
 
     return (
         <>
@@ -78,13 +118,16 @@ const AuthenticationPage = () => {
                     </div>
                 </div>
 
-                <div className="container_input check">
-                    <label htmlFor="recordarme" className="check_label">
-                        <input type="checkbox" id="recordarme" name="recordar" onChange={onChange} />
-                        Recordar mi inicio de sesión
-                        <i></i>
-                    </label>
-                </div>
+                {
+                    (!isCreateANewAccount) && 
+                    <div className="container_input check">
+                        <label htmlFor="recordarme" className="check_label">
+                            <input type="checkbox" id="recordarme" name="recordar" onChange={onChange} checked={recordar} />
+                            Recordar mi inicio de sesión
+                            <i></i>
+                        </label>
+                    </div>
+                }
 
                 <div className="container_label_link">
                     <span onClick={() => setIsCreateANewAccount(!isCreateANewAccount)} >
@@ -95,7 +138,7 @@ const AuthenticationPage = () => {
                     </span>
                 </div>
 
-                <button type="submit" className="btn_login">
+                <button type="submit" className="btn_login" disabled={!error}>
                     <span>{(isCreateANewAccount) ? 'Crear cuenta' : 'Ingresar'}</span>
                     {
                         (isCreateANewAccount) ? <BiUserCircle className="icon" /> : <BiLogIn className="icon" />

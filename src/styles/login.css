@@ -148,6 +148,12 @@ input[type="checkbox"] {
 .btn_login:active {
   background-color: slateblue;
 }
+.btn_login:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+
 .container_label_link{
     text-align: end;
     font-size: 1.1em;

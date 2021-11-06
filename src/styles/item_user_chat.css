@@ -8,10 +8,14 @@
     align-items: center;
     padding: .5em 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.685);
+    gap: 1em;
 }
 
 .container_user:hover{
     background-color: rgba(0, 0, 0, 0.521);
+}
+.container_user.activo{
+    background-color: rgba(0, 0, 0, 0.76);
 }
 
 .container_user .img_avatar {
