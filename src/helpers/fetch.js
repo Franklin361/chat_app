@@ -1,5 +1,6 @@
 
 const baseURL = 'https://chatserver-mx.herokuapp.com/api'
+// const baseURL = 'http://localhost:8080/api'
 
 export const fetchWhitOutToken = async(path, data, method="GET") => {
     

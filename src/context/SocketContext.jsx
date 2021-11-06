@@ -8,11 +8,13 @@ import { chatTypes } from '../types/chatTypes';
 
 export const SocketContext = createContext();
 
+const server = 'https://chatserver-mx.herokuapp.com';
+// const server = 'http://localhost:8080';
 
 export const SocketProvider = ({ children }) => {
     
     
-    const { socket, online,conectarSocket,desconectarSocket } = useSocket('https://chatserver-mx.herokuapp.com');
+    const { socket, online,conectarSocket,desconectarSocket } = useSocket(server);
     
     const {auth} = useContext(AuthContext)
     const { dispatch } = useChatContext()
