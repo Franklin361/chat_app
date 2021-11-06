@@ -1,5 +1,5 @@
 
-const baseURL = import.meta.env.VITE_API_URL
+const baseURL = 'https://chatserver-mx.herokuapp.com/api'
 
 export const fetchWhitOutToken = async(path, data, method="GET") => {
     

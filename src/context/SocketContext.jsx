@@ -3,7 +3,6 @@ import { createContext } from 'react';
 import { AuthContext } from '../auth/AuthContext';
 import { scrollToBottomAction } from '../helpers/scrollAction';
 import { useChatContext } from '../hooks/useChatContext';
-import { useContextUserAuth } from '../hooks/useContextUserAuth';
 import { useSocket } from '../hooks/useSocket'
 import { chatTypes } from '../types/chatTypes';
 
@@ -11,8 +10,10 @@ export const SocketContext = createContext();
 
 
 export const SocketProvider = ({ children }) => {
-
-    const { socket, online,conectarSocket,desconectarSocket } = useSocket('http://localhost:8080');
+    
+    
+    const { socket, online,conectarSocket,desconectarSocket } = useSocket('https://chatserver-mx.herokuapp.com');
+    
     const {auth} = useContext(AuthContext)
     const { dispatch } = useChatContext()
     
@@ -24,7 +25,6 @@ export const SocketProvider = ({ children }) => {
     }, [auth]);
 
     useEffect(() => {
-        console.log(auth.logged)
         if(!auth.logged){
             desconectarSocket();
         }
@@ -33,7 +33,7 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         socket?.on('lista-usuarios', ( usuarios )=>{
-            console.log(usuarios)
+            
             dispatch({
                 type: chatTypes.getUsuarios ,
                 payload: usuarios 

@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        // localStorage.removeItem('token');
+        localStorage.removeItem('token');
         dispatch({ type: chatTypes.pugarChat });
         setAuth({
             checking: false,
