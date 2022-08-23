@@ -34,7 +34,7 @@
 - **Socket.IO**
 - **Heroku** (to deploy the api)
 
-> **Note**: You can review the backend code in this link: [https://github.com/Franklin361/showphotos-server](https://github.com/Franklin361/showphotos-server)
+> **Note**: You can review the backend code in this link: [https://github.com/Franklin361/chat_server](https://github.com/Franklin361/chat_server)
 
 &nbsp;
 
