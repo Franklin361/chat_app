@@ -8,56 +8,56 @@ import { chatTypes } from '../types/chatTypes';
 
 export const SocketContext = createContext();
 
-const server = 'https://chatserver-mx.herokuapp.com';
+const server = 'https://chat-server-3ynm.onrender.com';
 // const server = 'http://localhost:8080';
 
 export const SocketProvider = ({ children }) => {
-    
-    
-    const { socket, online,conectarSocket,desconectarSocket } = useSocket(server);
-    
-    const {auth} = useContext(AuthContext)
+
+
+    const { socket, online, conectarSocket, desconectarSocket } = useSocket(server);
+
+    const { auth } = useContext(AuthContext)
     const { dispatch } = useChatContext()
-    
+
     useEffect(() => {
-        
-        if(auth.logged){
+
+        if (auth.logged) {
             conectarSocket();
         }
     }, [auth]);
 
     useEffect(() => {
-        if(!auth.logged){
+        if (!auth.logged) {
             desconectarSocket();
         }
     }, [auth]);
 
 
     useEffect(() => {
-        socket?.on('lista-usuarios', ( usuarios )=>{
-            
+        socket?.on('lista-usuarios', (usuarios) => {
+
             dispatch({
-                type: chatTypes.getUsuarios ,
-                payload: usuarios 
+                type: chatTypes.getUsuarios,
+                payload: usuarios
             })
         })
     }, [socket]);
 
     useEffect(() => {
-        socket?.on('mensaje-personal', ( mensaje )=>{
+        socket?.on('mensaje-personal', (mensaje) => {
             dispatch({
-                type: chatTypes.nuevoMensaje ,
+                type: chatTypes.nuevoMensaje,
                 payload: mensaje
             });
 
             scrollToBottomAction('container_messages_chat', 250)
         })
-        
+
     }, [socket])
 
     return (
         <SocketContext.Provider value={{ socket, online }}>
-            { children }
+            {children}
         </SocketContext.Provider>
     )
 }
